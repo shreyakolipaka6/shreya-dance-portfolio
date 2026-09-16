@@ -26,32 +26,7 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    cursor: none;
   }
-
-  /* Custom cursor */
-  .cursor {
-    position: fixed;
-    width: 10px; height: 10px;
-    background: var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-    mix-blend-mode: screen;
-  }
-  .cursor-ring {
-    position: fixed;
-    width: 36px; height: 36px;
-    border: 1px solid rgba(201,146,42,0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease;
-  }
-  body:hover .cursor { opacity: 1; }
 
   /* NAV */
   nav {
@@ -579,9 +554,6 @@
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Shreya Kolipaka</div>
@@ -766,6 +738,7 @@
              <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
       <div class="play-btn" onclick="window.open('https://www.youtube.com/watch?v=Mem-s4Qbt8U', '_blank')">
           <svg width="18" height="20" viewBox="0 0 18 20"><path d="M1 1l16 9-16 9V1z"/></svg>
+        </div>
       </div>
       <div class="video-info">
         <div class="video-title">Arengetram — Classical Debut</div>
@@ -832,32 +805,6 @@
 </footer>
 
 <script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const cursorRing = document.getElementById('cursorRing');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    setTimeout(() => {
-      cursorRing.style.left = e.clientX + 'px';
-      cursorRing.style.top = e.clientY + 'px';
-    }, 60);
-  });
-  document.querySelectorAll('a, button, .perf-item, .video-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.width = '16px';
-      cursor.style.height = '16px';
-      cursorRing.style.width = '50px';
-      cursorRing.style.height = '50px';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.width = '10px';
-      cursor.style.height = '10px';
-      cursorRing.style.width = '36px';
-      cursorRing.style.height = '36px';
-    });
-  });
-
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
