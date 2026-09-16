@@ -559,11 +559,15 @@
     nav { padding: 1.5rem 2rem; }
     .nav-links { display: none; }
     .hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-    .hero-left { padding: 8rem 2rem 4rem; }
+    .hero { min-height: auto; }
+    .hero-left { padding: 8rem 2rem 5.5rem; }
+    .hero-right { height: 70vh; min-height: 380px; max-height: 600px; }
+    .hero-right img { object-fit: cover; object-position: center top; }
     section { padding: 5rem 2rem; }
     #about { grid-template-columns: 1fr; gap: 3rem; }
-    .about-image-grid { display: none; }
+    .about-image-grid { grid-template-columns: 1fr 1fr; }
+    .about-img:first-child { grid-column: 1 / -1; grid-row: auto; height: 420px; }
+    .about-img:not(:first-child) { height: 170px; }
     .perf-item { grid-template-columns: 60px 1fr; }
     .perf-style, .perf-role { display: none; }
     .video-grid { grid-template-columns: 1fr; }
@@ -612,6 +616,7 @@
     <div class="hero-image-container">
       <img src="hero.webp" alt="Shreya Kolipaka performing Bharatanatyam">
     </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
